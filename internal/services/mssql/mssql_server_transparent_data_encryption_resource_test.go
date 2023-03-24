@@ -105,18 +105,16 @@ resource "azurerm_key_vault" "test" {
   sku_name = "standard"
 
   access_policy {
-    tenant_id    = data.azurerm_client_config.current.tenant_id
-    object_id    = data.azurerm_client_config.current.object_id
-
+    tenant_id       = data.azurerm_client_config.current.tenant_id
+    object_id       = data.azurerm_client_config.current.object_id
     key_permissions = [
       "Get",  "List", "Create", "Delete", "Update", "Purge", 
     ]
   }
 
   access_policy {
-    tenant_id = azurerm_mssql_server.test.identity[0].tenant_id
-    object_id = azurerm_mssql_server.test.identity[0].principal_id
-
+    tenant_id       = azurerm_mssql_server.test.identity[0].tenant_id
+    object_id       = azurerm_mssql_server.test.identity[0].principal_id
     key_permissions = [
       "Get", "WrapKey", "UnwrapKey", "List", "Create", 
     ]
@@ -128,8 +126,7 @@ resource "azurerm_key_vault_key" "generated" {
   key_vault_id = azurerm_key_vault.test.id
   key_type     = "RSA"
   key_size     = 2048
-
-  key_opts = [
+  key_opts     = [
     "decrypt",
     "encrypt",
     "sign",
@@ -137,8 +134,7 @@ resource "azurerm_key_vault_key" "generated" {
     "verify",
     "wrapKey",
   ]
-
-  depends_on = [
+  depends_on  = [
     azurerm_key_vault.test,
   ]
 }
