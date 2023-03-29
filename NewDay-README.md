@@ -26,11 +26,13 @@ $ $GOPATH/bin/terraform-provider-azurerm
 Copy file to the expected local library, adjust for the version:
 
 ```sh
-cp /root/go/bin/terraform-provider-azurerm ~/.terraform.d/plugins/registry.terraform.io/hashicorp/azurerm/<version number>/linux_amd64
+mkdir -p ~/.terraform.d/plugins/registry.terraform.io/hashicorp/azurerm/<version number>/linux_amd64/
+cp /root/go/bin/terraform-provider-azurerm ~/.terraform.d/plugins/registry.terraform.io/hashicorp/azurerm/<version number>/linux_amd64/
 ```
 
 Or
 
 ```sh
-cp /root/go/bin/terraform-provider-azurerm ~/.terraform.d/plugins/registry.terraform.io/hashicorp/azurerm/2.75.0-nd3/linux_amd64
+mkdir -p ~/.terraform.d/plugins/registry.terraform.io/hashicorp/azurerm/2.75.0-nd3/linux_amd64/
+cp /root/go/bin/terraform-provider-azurerm ~/.terraform.d/plugins/registry.terraform.io/hashicorp/azurerm/2.75.0-nd3/linux_amd64/
 ```
