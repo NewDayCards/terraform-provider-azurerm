@@ -1,7 +1,6 @@
 module github.com/hashicorp/terraform-provider-azurerm
 
 require (
-	cloud.google.com/go/storage v1.16.0 // indirect
 	github.com/Azure/azure-sdk-for-go v57.0.0+incompatible
 	github.com/Azure/go-autorest/autorest v0.11.19
 	github.com/Azure/go-autorest/autorest/date v0.3.0
@@ -16,8 +15,8 @@ require (
 	github.com/fatih/color v1.12.0 // indirect
 	github.com/gofrs/uuid v4.0.0+incompatible
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	github.com/google/go-cmp v0.5.6
-	github.com/google/uuid v1.1.2
+	github.com/google/go-cmp v0.5.9
+	github.com/google/uuid v1.3.0
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-azure-helpers v0.16.5
 	github.com/hashicorp/go-getter v1.5.4
@@ -41,12 +40,9 @@ require (
 	github.com/shopspring/decimal v1.2.0
 	github.com/tombuildsstuff/giovanni v0.16.0
 	github.com/ulikunitz/xz v0.5.10 // indirect
-	golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97
-	golang.org/x/net v0.0.0-20210614182718-04defd469f4e
-	golang.org/x/oauth2 v0.0.0-20210628180205-a41e5a781914 // indirect
-	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
-	google.golang.org/genproto v0.0.0-20210629200056-84d6f6074151 // indirect
-	google.golang.org/grpc v1.39.0 // indirect
+	golang.org/x/crypto v0.0.0-20211108221036-ceb1ce70b4fa
+	golang.org/x/net v0.5.0
+	google.golang.org/grpc v1.53.0 // indirect
 	gopkg.in/yaml.v2 v2.3.0
 )
 
