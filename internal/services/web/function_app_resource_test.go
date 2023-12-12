@@ -1064,6 +1064,22 @@ func TestAccFunctionApp_dotnetVersion7(t *testing.T) {
 	})
 }
 
+func TestAccFunctionApp_dotnetVersion8(t *testing.T) {
+	data := acceptance.BuildTestData(t, "azurerm_function_app", "test")
+	r := FunctionAppResource{}
+
+	data.ResourceTest(t, r, []acceptance.TestStep{
+		{
+			Config: r.dotnetVersion(data, "~4", "v8.0"),
+			Check: acceptance.ComposeTestCheckFunc(
+				check.That(data.ResourceName).ExistsInAzure(r),
+				check.That(data.ResourceName).Key("site_config.0.dotnet_framework_version").HasValue("v8.0"),
+			),
+		},
+		data.ImportStep(),
+	})
+}
+
 func (r FunctionAppResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := parse.FunctionAppID(state.ID)
 	if err != nil {
