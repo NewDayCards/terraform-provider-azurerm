@@ -12,7 +12,7 @@ linters:
   disable-all: true
   enable:
     - asciicheck
-    - deadcode
+    # - deadcode # deprecated since 1.49.0
     - errcheck
     - gocritic
     - gofmt
@@ -23,12 +23,12 @@ linters:
     - nakedret
     - misspell
     - staticcheck
-    - structcheck
+    #- structcheck  # deprecated since 1.49.0
     - typecheck
     - unused
     - unconvert
     - unparam
-    - varcheck
+    #- varcheck  # deprecated since 1.49.0
     - vet
     - vetshadow
     # - whitespace # Disabled for performance reasons - Ignores cache and takes 12+ minutes to run on the repo for _any_ change
