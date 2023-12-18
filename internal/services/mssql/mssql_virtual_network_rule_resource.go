@@ -199,12 +199,12 @@ func resourceMsSqlVirtualNetworkRuleDelete(d *pluginsdk.ResourceData, meta inter
 // mssqlVirtualNetworkStateStatusCodeRefreshFunc refreshes and checks the state of the SQL Virtual Network Rule.
 // Response will contain a VirtualNetworkRuleProperties struct with a State property.
 // The state property contain one of the following states (except ResponseNotFound).
-//	* Deleting
-//	* Initializing
-//	* InProgress
-//	* Unknown
-//	* Ready
-//	* ResponseNotFound (custom state in case of 404)
+//   - Deleting
+//   - Initializing
+//   - InProgress
+//   - Unknown
+//   - Ready
+//   - ResponseNotFound (custom state in case of 404)
 func mssqlVirtualNetworkStateStatusCodeRefreshFunc(ctx context.Context, client *sql.VirtualNetworkRulesClient, id parse.VirtualNetworkRuleId) pluginsdk.StateRefreshFunc {
 	return func() (interface{}, string, error) {
 		resp, err := client.Get(ctx, id.ResourceGroup, id.ServerName, id.Name)

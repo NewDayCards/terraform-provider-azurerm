@@ -19,9 +19,9 @@ import (
 type DataLakeStoreVirtualNetworkRuleResource struct{}
 
 /*
-	---Testing for Success---
-	Test a basic Data Lake Store virtual network rule configuration setup and update scenario, and
-	validate that new property is set correctly.
+---Testing for Success---
+Test a basic Data Lake Store virtual network rule configuration setup and update scenario, and
+validate that new property is set correctly.
 */
 func TestAccDataLakeStoreVirtualNetworkRule_basic(t *testing.T) {
 	data := acceptance.BuildTestData(t, "azurerm_data_lake_store_virtual_network_rule", "test")
@@ -61,9 +61,9 @@ func TestAccDataLakeStoreVirtualNetworkRule_requiresImport(t *testing.T) {
 }
 
 /*
-	---Testing for Success---
-	Test an update to the Data Lake Store Virtual Network Rule to connect to a different subnet, and
-	validate that new subnet is set correctly.
+---Testing for Success---
+Test an update to the Data Lake Store Virtual Network Rule to connect to a different subnet, and
+validate that new subnet is set correctly.
 */
 func TestAccDataLakeStoreVirtualNetworkRule_switchSubnets(t *testing.T) {
 	data := acceptance.BuildTestData(t, "azurerm_data_lake_store_virtual_network_rule", "test")
@@ -92,7 +92,7 @@ func TestAccDataLakeStoreVirtualNetworkRule_switchSubnets(t *testing.T) {
 }
 
 /*
-	---Testing for Success---
+---Testing for Success---
 */
 func TestAccDataLakeStoreVirtualNetworkRule_disappears(t *testing.T) {
 	data := acceptance.BuildTestData(t, "azurerm_data_lake_store_virtual_network_rule", "test")
@@ -107,9 +107,9 @@ func TestAccDataLakeStoreVirtualNetworkRule_disappears(t *testing.T) {
 }
 
 /*
-	--Testing for Success--
-	Test if we are able to create multiple subnets and connect multiple subnets to the
-	Data Lake Store.
+--Testing for Success--
+Test if we are able to create multiple subnets and connect multiple subnets to the
+Data Lake Store.
 */
 func TestAccDataLakeStoreVirtualNetworkRule_multipleSubnets(t *testing.T) {
 	data := acceptance.BuildTestData(t, "azurerm_data_lake_store_virtual_network_rule", "test")
@@ -130,8 +130,8 @@ func TestAccDataLakeStoreVirtualNetworkRule_multipleSubnets(t *testing.T) {
 }
 
 /*
-	--Testing for Failure--
-	Validation Function Tests - Invalid Name Validations
+--Testing for Failure--
+Validation Function Tests - Invalid Name Validations
 */
 func TestResourceAzureRMDataLakeStoreVirtualNetworkRule_invalidNameValidation(t *testing.T) {
 	cases := []struct {
@@ -205,8 +205,8 @@ func TestResourceAzureRMDataLakeStoreVirtualNetworkRule_invalidNameValidation(t 
 }
 
 /*
-	--Testing for Success--
-	Validation Function Tests - (Barely) Valid Name Validations
+--Testing for Success--
+Validation Function Tests - (Barely) Valid Name Validations
 */
 func TestResourceAzureRMDataLakeStoreVirtualNetworkRule_validNameValidation(t *testing.T) {
 	cases := []struct {
@@ -329,8 +329,8 @@ func (r DataLakeStoreVirtualNetworkRuleResource) Destroy(ctx context.Context, cl
 }
 
 /*
-	(This test configuration is intended to succeed.)
-	Basic Provisioning Configuration
+(This test configuration is intended to succeed.)
+Basic Provisioning Configuration
 */
 func (r DataLakeStoreVirtualNetworkRuleResource) basic(data acceptance.TestData) string {
 	return fmt.Sprintf(`
@@ -387,8 +387,8 @@ resource "azurerm_data_lake_store_virtual_network_rule" "import" {
 }
 
 /*
-	(This test configuration is intended to succeed.)
-	Basic Provisioning Update Configuration (all other properties would recreate the rule)
+(This test configuration is intended to succeed.)
+Basic Provisioning Update Configuration (all other properties would recreate the rule)
 */
 func (r DataLakeStoreVirtualNetworkRuleResource) withUpdates(data acceptance.TestData) string {
 	return fmt.Sprintf(`
@@ -432,9 +432,9 @@ resource "azurerm_data_lake_store_virtual_network_rule" "test" {
 }
 
 /*
-	(This test configuration is intended to succeed.)
-	This test is designed to set up a scenario where a user would want to update the subnet
-	on a given Data Lake Store virtual network rule. This configuration sets up the resources initially.
+(This test configuration is intended to succeed.)
+This test is designed to set up a scenario where a user would want to update the subnet
+on a given Data Lake Store virtual network rule. This configuration sets up the resources initially.
 */
 func (r DataLakeStoreVirtualNetworkRuleResource) subnetSwitchPre(data acceptance.TestData) string {
 	return fmt.Sprintf(`
@@ -486,10 +486,10 @@ resource "azurerm_data_lake_store_virtual_network_rule" "test" {
 }
 
 /*
-	(This test configuration is intended to succeed.)
-	This test is designed to set up a scenario where a user would want to update the subnet
-	on a given Data Lake Store virtual network rule. This configuration contains the update from
-	azurerm_subnet.test1 to azurerm_subnet.test2.
+(This test configuration is intended to succeed.)
+This test is designed to set up a scenario where a user would want to update the subnet
+on a given Data Lake Store virtual network rule. This configuration contains the update from
+azurerm_subnet.test1 to azurerm_subnet.test2.
 */
 func (r DataLakeStoreVirtualNetworkRuleResource) subnetSwitchPost(data acceptance.TestData) string {
 	return fmt.Sprintf(`
@@ -541,9 +541,9 @@ resource "azurerm_data_lake_store_virtual_network_rule" "test" {
 }
 
 /*
-	(This test configuration is intended to succeed.)
-	This configuration sets up 3 subnets in 2 different virtual networks, and adds
-	Data Lake Store virtual network rules for all 3 subnets to the Data Lake Store.
+(This test configuration is intended to succeed.)
+This configuration sets up 3 subnets in 2 different virtual networks, and adds
+Data Lake Store virtual network rules for all 3 subnets to the Data Lake Store.
 */
 func (r DataLakeStoreVirtualNetworkRuleResource) multipleSubnets(data acceptance.TestData) string {
 	return fmt.Sprintf(`

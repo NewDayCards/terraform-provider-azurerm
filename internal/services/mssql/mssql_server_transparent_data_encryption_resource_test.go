@@ -89,8 +89,7 @@ func (MsSqlServerTransparentDataEncryptionResource) Exists(ctx context.Context, 
 }
 
 func (r MsSqlServerTransparentDataEncryptionResource) keyVault(data acceptance.TestData) string {
-	return fmt.Sprintf(
-		`
+	return fmt.Sprintf(`
 %s
 
 resource "azurerm_key_vault" "test" {
@@ -105,18 +104,18 @@ resource "azurerm_key_vault" "test" {
   sku_name = "standard"
 
   access_policy {
-    tenant_id       = data.azurerm_client_config.current.tenant_id
-    object_id       = data.azurerm_client_config.current.object_id
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
     key_permissions = [
-      "Get",  "List", "Create", "Delete", "Update", "Purge", 
+      "Get", "List", "Create", "Delete", "Update", "Purge",
     ]
   }
 
   access_policy {
-    tenant_id       = azurerm_mssql_server.test.identity[0].tenant_id
-    object_id       = azurerm_mssql_server.test.identity[0].principal_id
+    tenant_id = azurerm_mssql_server.test.identity[0].tenant_id
+    object_id = azurerm_mssql_server.test.identity[0].principal_id
     key_permissions = [
-      "Get", "WrapKey", "UnwrapKey", "List", "Create", 
+      "Get", "WrapKey", "UnwrapKey", "List", "Create",
     ]
   }
 }
@@ -126,7 +125,7 @@ resource "azurerm_key_vault_key" "generated" {
   key_vault_id = azurerm_key_vault.test.id
   key_type     = "RSA"
   key_size     = 2048
-  key_opts     = [
+  key_opts = [
     "decrypt",
     "encrypt",
     "sign",
@@ -134,13 +133,13 @@ resource "azurerm_key_vault_key" "generated" {
     "verify",
     "wrapKey",
   ]
-  depends_on  = [
+  depends_on = [
     azurerm_key_vault.test,
   ]
 }
 
 resource "azurerm_mssql_server_transparent_data_encryption" "test" {
-  server_id = azurerm_mssql_server.test.id
+  server_id        = azurerm_mssql_server.test.id
   key_vault_key_id = azurerm_key_vault_key.generated.id
 }
 `, r.server(data), data.RandomStringOfLength(5))
